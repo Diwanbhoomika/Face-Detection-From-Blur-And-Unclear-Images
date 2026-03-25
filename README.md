@@ -19,7 +19,7 @@ In many real-world situations, uploaded images are blurred, noisy, low-quality, 
 6. **OpenCV DNN face detection** runs on the restored image.
 7. The API returns the number of detected faces.
 
-This flow is visible in the frontend request to `http://127.0.0.1:5000/detect_faces` and the Flask route `/detect_faces` in the backend. The backend also loads a Caffe SSD face detector from `deploy.prototxt.txt` and `img.caffemodel`. citeturn339047view9turn339047view0turn339047view1turn811632view1
+This flow is visible in the frontend request to `http://127.0.0.1:5000/detect_faces` and the Flask route `/detect_faces` in the backend. The backend also loads a Caffe SSD face detector from `deploy.prototxt.txt` and `img.caffemodel`. 
 
 ## Features
 
@@ -32,7 +32,7 @@ This flow is visible in the frontend request to `http://127.0.0.1:5000/detect_fa
   - **colorization**
   - **inpainting**
 
-The repository includes `inference_codeformer.py`, `inference_codeformer1.py`, `inference_colorization.py`, and `inference_inpainting.py`, and the colorization/inpainting scripts are set up as separate CLI programs with their own input paths. citeturn621997view0turn339047view6turn339047view7
+The repository includes `inference_codeformer.py`, `inference_codeformer1.py`, `inference_colorization.py`, and `inference_inpainting.py`, and the colorization/inpainting scripts are set up as separate CLI programs with their own input paths. 
 
 ## Tech Stack
 
@@ -56,7 +56,7 @@ The repository includes `inference_codeformer.py`, `inference_codeformer1.py`, `
 - SciPy
 - torchvision
 
-These are consistent with the repository language mix and the listed `requirements.txt` dependencies. citeturn621997view0turn568738view0
+These are consistent with the repository language mix and the listed `requirements.txt` dependencies. 
 
 ## Repository Structure
 
@@ -76,7 +76,7 @@ Face-Detection-From-Blur-And-Unclear-Images/
 └── README.md
 ```
 
-This file list matches the repository root shown on GitHub. citeturn621997view0
+This file list matches the repository root shown on GitHub. 
 
 ## How It Works
 
@@ -87,7 +87,7 @@ The browser UI lets the user upload an image and click the action button. The Ja
 http://127.0.0.1:5000/detect_faces
 ```
 
-The page text currently says **"Upload an Image and click on detect faces"**, and the JavaScript calls the backend using `fetch(...)`. citeturn339047view8turn339047view9
+The page text currently says **"Upload an Image and click on detect faces"**, and the JavaScript calls the backend using `fetch(...)`. 
 
 ### Backend
 The Flask backend:
@@ -96,18 +96,18 @@ The Flask backend:
 - runs `main_fun()` for restoration,
 - reads the restored output from `./results/whole_imgs_0.5/final_results/input.png`,
 - saves a result copy, and
-- returns the face count using `detect_faces(...)`. citeturn339047view1
+- returns the face count using `detect_faces(...)`.
 
 ### Face Detection
 After restoration, face detection is performed with OpenCV's DNN module using:
 - `deploy.prototxt.txt`
 - `img.caffemodel`
 
-The model is loaded with `cv2.dnn.readNetFromCaffe(...)`, and detections above confidence `0.5` are counted. citeturn811632view1turn811632view0
+The model is loaded with `cv2.dnn.readNetFromCaffe(...)`, and detections above confidence `0.5` are counted. 
 
 ## Installation
 
-> Note: the repository contains a `requirements.txt`, but the backend code also imports Flask/CORS and CodeFormer-related packages that are not clearly listed there. So you may need to install a few extra dependencies manually depending on your environment. This note is based on the difference between `requirements.txt` and the imports in `inference_codeformer.py`. citeturn568738view0turn776510view2
+> Note: the repository contains a `requirements.txt`, but the backend code also imports Flask/CORS and CodeFormer-related packages that are not clearly listed there. So you may need to install a few extra dependencies manually depending on your environment. This note is based on the difference between `requirements.txt` and the imports in `inference_codeformer.py`. 
 
 ### 1. Clone the repository
 
@@ -150,7 +150,7 @@ pip install flask flask-cors basicsr facelib realesrgan
 
 ### Start the backend
 
-Because `inference_codeformer.py` contains the Flask app and runs it with `app.run(debug=True)`, this is the most likely file to start first: citeturn339047view1
+Because `inference_codeformer.py` contains the Flask app and runs it with `app.run(debug=True)`, this is the most likely file to start first: 
 
 ```bash
 python inference_codeformer.py
@@ -193,7 +193,7 @@ This repository also includes two useful extension scripts:
 `inference_colorization.py` is configured for grayscale face inputs and loads a separate pretrained model URL for colorization. citeturn339047view6
 
 ### 2. Inpainting
-`inference_inpainting.py` is configured for masked face inputs and loads a separate pretrained model URL for inpainting. citeturn339047view7
+`inference_inpainting.py` is configured for masked face inputs and loads a separate pretrained model URL for inpainting. 
 
 These scripts make the repository more than a simple face detector. It is closer to an image restoration + face enhancement project with face detection as the final step.
 
@@ -205,7 +205,7 @@ These scripts make the repository more than a simple face detector. It is closer
 - `requirements.txt` appears incomplete relative to the backend imports.
 - The repository README and project description are currently minimal.
 
-These points come directly from the current frontend text, hardcoded fetch URL, backend save/output paths, and dependency mismatch. citeturn339047view8turn339047view9turn339047view1turn568738view0turn776510view2
+These points come directly from the current frontend text, hardcoded fetch URL, backend save/output paths, and dependency mismatch. 
 
 ## Future Improvements
 
@@ -228,8 +228,7 @@ These points come directly from the current frontend text, hardcoded fetch URL, 
 
 ## Credits
 
-This repository is marked as a fork of `Anuragbisen42/Face-Detection-From-Blur-And-Unclear-Images` on GitHub. citeturn621997view0
-
+This repository is marked as a fork of `Anuragbisen42/Face-Detection-From-Blur-And-Unclear-Images` on GitHub. 
 
 ---
 
